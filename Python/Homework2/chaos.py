@@ -15,6 +15,10 @@ def calc_chaos(init_val_a, init_val_b, iterations):
 
 def main():
     # get interations number and check ,ensure the data type
+    iterations = 0
+    init_val_a = 0.0
+    init_val_b = 0.0
+
     try:
         iterations = int(eval(input("Enter a number for iterations:  ")))
         init_val_a = float(eval(input("Enter a number for init_val_a:  ")))
