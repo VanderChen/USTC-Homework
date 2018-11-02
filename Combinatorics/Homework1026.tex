@@ -1,0 +1,78 @@
+%!TEX program = pdflatex
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+
+\begin{document}
+\section{Question 33}
+\paragraph{Question}
+Fill in the rows of Pascal’s triangle corresponding to $n = 9$ and 10.
+\paragraph{Answer}
+\begin{center}
+    1 9 36 84 126 126 84 36 9 1 \\
+    1 10 45 120 210 252 210 120 45 10 1 \\
+\end{center}
+\section{Question 34}
+\paragraph{Question}
+Prove, that for every integer $n > 1$,
+$$\begin{pmatrix} n \\ 1 \end{pmatrix} 
+- 2\begin{pmatrix} n \\ 2 \end{pmatrix}
++ 3\begin{pmatrix} n \\ 2 \end{pmatrix}
++ \cdots +
+\left( -1\right)^{n-1}n\begin{pmatrix} n \\ n \end{pmatrix}
+ = 0
+$$
+\paragraph{Answer}
+$$ \left(1-x\right)^n = \sum_{k=0}^{n}\begin{pmatrix} n \\ k \end{pmatrix} \left(-1\right)^{k} x^{k}$$
+$$ -n\left(1-x\right)^{n-1} = \sum_{k=0}^{n}\begin{pmatrix} n \\ k \end{pmatrix} \left(-1\right)^{k} kx^{k-1}$$
+\begin{center}
+    Set $x = 1$
+\end{center}
+$$ 0 = \sum_{k=0}^{n}\begin{pmatrix} n \\ k \end{pmatrix} \left(-1\right)^{k} k$$
+
+\section{Question 35}
+\paragraph{Question}
+Every day a student walks from her home to school, which is located 10 blocks east and 14 blocks north from home. She always takes a shortest walk of 24 blocks.
+\begin{enumerate}[(a)]
+    \item How many different walks are possible?
+    \item Suppose that 4 blocks east and 5 blocks north of her home lives her best
+    friend, whom she meets each day on her way to school. Now how many
+    different walks are possible?
+    \item Suppose, in addition, that 3 blocks east and 6 blocks north of her friend’s
+    house there is a park where the two girls stop each day to rest and play. Now
+    how many different walks are there?
+    \item Supposing at a park to rest and play, the two students often get to school late.
+    To avoid the temptation of the park, our two students decide never to pass
+    the intersection where the park is. Now how many different walks are there?
+\end{enumerate}
+
+\paragraph{Answer}
+\begin{enumerate}[(a)]
+\item $ \begin{pmatrix} 24 \\ 10 \end{pmatrix} $
+\item $ \begin{pmatrix} 9 \\ 4 \end{pmatrix} \begin{pmatrix} 15 \\ 6 \end{pmatrix}$
+\item $ \begin{pmatrix} 9 \\ 4 \end{pmatrix} \begin{pmatrix} 9 \\ 3 \end{pmatrix} \begin{pmatrix} 6 \\ 3 \end{pmatrix}$
+\item $ \begin{pmatrix} 9 \\ 4 \end{pmatrix} \begin{pmatrix} 15 \\ 6 \end{pmatrix} - \begin{pmatrix} 9 \\ 4 \end{pmatrix} \begin{pmatrix} 9 \\ 3 \end{pmatrix} \begin{pmatrix} 6 \\ 3 \end{pmatrix}$
+\end{enumerate}
+\section{Question 37}
+\paragraph{Question}
+Find the number of integers between 1 and 10,000 inclusive that are not divisible by 4, 5, or 6.
+\paragraph{Answer}
+Set A which divisible by 4. $10^{4} = 2500 * 4 $ so $\vert A \vert = 2500$ \\
+Set B which divisible by 5. $10^{4} = 2000 * 5 $,so $\vert B \vert = 2000$ \\
+Set C which divisible by 6. $10^{4} = 1666 * 6 + 4$,so $\vert C \vert = 2500$ \\
+$10^{4} = 500 * 20$,so $\vert A \cap B \vert = 500$ \\
+$10^{4} = 333 * 30 + 10$,so $\vert B \cap C \vert = 333$ \\
+$10^{4} = 833 * 12 + 4$,so $\vert A \cap C \vert = 833$ \\
+$10^{4} = 166 * 60 + 40$,so $\vert A \cap B \cap C \vert = 166$ \\
+$\vert \bar{A} \cap \bar{B} \cap \bar{C}\vert = 10^{4} - 2500 - 2000 - 1666 + 500 + 333 + 833 - 166 = 5334$
+\section{Question 38}
+\paragraph{Question}
+Find the number of integers between 1 and 10,000 that are neither perfect squares nor perfect cubes.
+\paragraph{Answer}
+Set A which perfect squares. $10^{4} = 100^{2} $ so $\vert A \vert = 100$ \\
+Set B which perfect cubes. $21^{3} = 9261$ and $22^{3} = 10648$ ,so $\vert B \vert = 21$ \\
+$4^{6} = 4096$ and $5^{6} = 15625$,so $\vert A \cap B \vert = 4$ \\
+$\vert \bar{A} \cap \bar{B} = 10^{4} - 100 -21 +4 = 9883$
+\end{document}
