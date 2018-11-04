@@ -1,10 +1,3 @@
-#!/usr/bin/python3
-# encoding : utf-8
-# __author__:yangge
-# __ID__:SA18225435
-# file: animation.py
-
-
 from inputDialog import InputDialog
 from graphics import *
 from shotTracker import ShotTracker

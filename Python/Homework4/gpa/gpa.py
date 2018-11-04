@@ -1,16 +1,21 @@
 from student import Student
 
 def readStudents(data_filename):
+    # catch exception file open
     with open(data_filename,'r') as data_file:
         student_list = []
         for line in data_file:
+            # use staticmethod creat class
             student_list.append(Student.makeStudent(line))
         data_file.close()
+        # return class list
         return student_list
 
 def writeStudents(student_list,result_filename):
+    # catch exception file open
     with open(result_filename, 'w') as result_file:
         for s in student_list:
+            # format output
             print("{0:<15}{1:<10}{2:<10}{3:.2f}".format(s.getName(),s.getHours(),s.getPoints(),s.gpa()),file = result_file)
         result_file.close()
 
