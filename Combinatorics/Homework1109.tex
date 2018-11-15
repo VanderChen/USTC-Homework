@@ -1,0 +1,147 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+ 
+\title{Homework 11.02}
+\author{SA18225036 陈旻}
+\date{}
+\begin{document}
+\maketitle
+\section{Question 47}
+\paragraph{Question}
+Solve the recurrence relation $ h_{n} = 8h_{n - 1} - 16h_{n - 2} $, $ (n \geq 2) $ with initial values $ h_{0} = -1 $ and $ h_{1} = 0 $.
+\paragraph{Answer}
+    ~\\
+    Observe $ x^{2} - 8x + 16 = (x - 4)^{2} $ \\
+    Therefore the general solution is
+    $$ h_{n} = (a + bn)4^{n} \quad n = 0,1,2,\dots $$
+    Using $ h_{0} = -1,h_{1} = 0 $, we obtain $ a = -1 , b = 1 $, Therefore
+    $$ h_{n} = (n - 1)4^{n} \quad n = 0,1,2,\dots $$
+
+
+
+\section{Question 48}
+\paragraph{Question}
+Solve the nonhomogeneous recurrence relation
+$$ h_{n} = 2h_{n-1} + n , (n \geq 1) , h_{0} = 1.$$
+\paragraph{Answer}
+~\\
+We hunt for solutions of the form
+$$ h_{n} = a2^{n} + bn +c \quad n = 0,1,2,\dots $$
+Using $ h_{0} = 1, h_{1} = 3, h_{2} = 8 $ \\
+We find that $ a = 3, b = -1, c = -2 $ \\
+We now verify that
+$$ h_{n} = 3 * 2^{n} -n - 2 \quad n = 0,1,2, \dots $$
+For $ n \geq 0 $ define $ H_{n} = 3 * 2^{n} - n - 2 $. One checks that $ H_{0} = 1 $ and
+$$ H_{n} = 2H_{n - 1} + n \quad n = 1,2,3, \dots $$
+Therefore $ h_{n} = H_{n} $ for $ n \geq 0 $
+\section{Question 49}
+\paragraph{Question}
+Solve the following recurrence relations by using the method of generating functions as described in Section 7.5, 
+\begin{enumerate}[(a)]
+    \item $ h_{n} = 4h_{n - 2} , (n \geq 2); \quad h_{0} = 0, h_{1} = 1 $
+    \item $ h_{n} = h_{n - 1} + h_{n - 2}, (n \geq 2); \quad h_{0} = 0, h_{1} = 3 $
+    \item $ h_{n} = h_{n - 1} + 9h_{n - 2} - 9h_{n - 3}, (n \geq 3); \quad h_{0} = 0, h_{1} = 1, h_{2} = 2 $
+    \item $ h_{n} = 8h_{n - 1} - 16h_{n - 2}, (n \geq 2); \quad h_{0} = -1, h_{1} = 0 $
+    \item $ h_{n} = 3h_{n - 2} - 2h_{n - 3}, (n \geq 3); \quad h_{0} = 1, h_{1} = 0, h_{2} = 0 $
+    \item $ h_{n} = 5h_{n - 1} - 6h_{n - 2} - 4h_{n - 3} + 8h_{n - 4}, (n \geq 4); \quad h_{0} = 0, h_{1} = 1, h_{2} = 1, h_{3} = 2 $
+\end{enumerate}
+\paragraph{Answer}
+~\\
+Define $ g(x) = \sum_{n = 0}^{\infty}h_{n}x^{n} $. Note that $ x^{r}g(x) = \sum_{n = r}^{\infty}h_{n - r}x^{n} $ for $ r \geq 0 $
+\begin{enumerate}[(a)]
+    \item Using the given information on $ h_{n} $ we find
+          $$ g(x)  = x + 4x^{2}g(x) $$
+          Therefore
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{x}{1 - 4x^{2}} \\
+          &= \frac{1}{4(1 - 2x)} - \frac{1}{4(1 + 2x)} \\
+          &= \sum_{n = 0}^\infty \frac{2^{n} - {(-2)}^{n}}{4} x^{n}
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
+    \item Abbreviate $ r = \frac{1 + \sqrt{5}}{2} $, \quad $ s = \frac{1 - \sqrt{5}}{2} $ \\
+          Using the given information on $ h_{n} $ we find
+          $$ g(x)(1 - x - x^2)  = 1 + 2x $$
+          Therefore
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{1 + 2x}{1 - x - x^2} \\
+          &= \frac{r}{1 - rx} - \frac{s}{1 - sx} \\
+          &= \sum_{n = 0}^\infty (r^{n + 1} + s^{n + 1}) x^{n}
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = r^{n + 1} + s^{n + 1} \quad n=0,1,2, \dots $$
+    \item Using the given information on $ h_{n} $ we find
+          $$ g(x)(1 -x - 9x^2 + 9x^3)  = x + x^2 $$
+          Consequently
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{x + x^2}{1 -x - 9x^2 + 9x^3} \\
+          &= \frac{1}{3(1 - 3x)} - \frac{1}{12(1 + 3x)} - \frac{1}{4(1 - x)} \\
+          &= \sum_{n = 0}^\infty \frac{4*3^{n} - {(-3)}^{n} - 3}{12} x^{n}
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = \frac{4*3^{n} - {(-3)}^{n} - 3}{12} x^{n} \quad n=0,1,2, \dots $$
+    \item Using the given information on $ h_{n} $ we find
+          $$ g(x)(1 - 8x + 16x^2)  = 8x - 1 $$
+          Consequently
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{8x - 1}{1 - 8x + 16x^2} \\
+          &= \frac{8x - 1}{(1 - 4x)^2} \\
+          &= (8x - 1)\sum_{n = 0}^\infty (n + 1)4^n x^n \\
+          &= \sum_{n = 0}^\infty (n - 1)4^n x^n
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = (n - 1)4^n \quad n=0,1,2, \dots $$
+    \item Using the given information on $ h_{n} $ we find
+          $$ g(x)  = x + 4x^{2}g(x) $$
+          Therefore
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{x}{1 - 4x^{2}} \\
+          &= \frac{1}{4(1 - 2x)} - \frac{1}{4(1 + 2x)} \\
+          &= \sum_{n = 0}^\infty \frac{2^{n} - {(-2)}^{n}}{4} x^{n}
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
+    \item Using the given information on $ h_{n} $ we find
+          $$ g(x)  = x + 4x^{2}g(x) $$
+          Therefore
+          \begin{equation}
+          \begin{aligned}
+          g(x) &= \frac{x}{1 - 4x^{2}} \\
+          &= \frac{1}{4(1 - 2x)} - \frac{1}{4(1 + 2x)} \\
+          &= \sum_{n = 0}^\infty \frac{2^{n} - {(-2)}^{n}}{4} x^{n}
+          \nonumber
+          \end{aligned}
+          \end{equation}
+          Therefore
+          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
+\end{enumerate}
+\section{Question 50}
+\paragraph{Question}
+Let $ h_{0}, h_{1}, h_{2}, \cdots ,h_{n}, \cdots $ be the sequence dened by $ h_{n} = \begin{pmatrix} n \\ 2 \end{pmatrix} $, $ (n \geq 0) $. Determine the generating function for the sequence.
+\paragraph{Answer}
+\begin{center}
+
+\end{center}
+\end{document}
