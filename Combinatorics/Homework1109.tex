@@ -68,7 +68,7 @@ Define $ g(x) = \sum_{n = 0}^{\infty}h_{n}x^{n} $. Note that $ x^{r}g(x) = \sum_
           \end{aligned}
           \end{equation}
           Therefore
-          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
+          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} \quad n=0,1,2, \dots $$
     \item Abbreviate $ r = \frac{1 + \sqrt{5}}{2} $, \quad $ s = \frac{1 - \sqrt{5}}{2} $ \\
           Using the given information on $ h_{n} $ we find
           $$ g(x)(1 - x - x^2)  = 1 + 2x $$
@@ -110,38 +110,40 @@ Define $ g(x) = \sum_{n = 0}^{\infty}h_{n}x^{n} $. Note that $ x^{r}g(x) = \sum_
           \end{equation}
           Therefore
           $$ h_{n} = (n - 1)4^n \quad n=0,1,2, \dots $$
-    \item Using the given information on $ h_{n} $ we find
-          $$ g(x)  = x + 4x^{2}g(x) $$
-          Therefore
+    \item Therefore
           \begin{equation}
           \begin{aligned}
-          g(x) &= \frac{x}{1 - 4x^{2}} \\
-          &= \frac{1}{4(1 - 2x)} - \frac{1}{4(1 + 2x)} \\
-          &= \sum_{n = 0}^\infty \frac{2^{n} - {(-2)}^{n}}{4} x^{n}
+          g(x) &= \frac{1 - 3x^2}{1 - 3x^2 + 2x^3} \\
+          &= \frac{\frac{14}{9}}{1 - x} - \frac{\frac{2}{3}}{(1 - x)^2} + \frac{\frac{1}{9}}{1 + 2x} \\
+          &= \sum_{n = 0}^\infty [\frac{14}{9} - \frac{2}{3}(n + 1) + \frac{1}{9}(-2)^n] x^{n}
           \nonumber
           \end{aligned}
           \end{equation}
           Therefore
-          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
-    \item Using the given information on $ h_{n} $ we find
-          $$ g(x)  = x + 4x^{2}g(x) $$
-          Therefore
+          $$ h_{n} = \frac{14}{9} - \frac{2}{3}(n + 1) + \frac{1}{9}(-2)^n \quad n=0,1,2, \dots $$
+    \item Therefore
           \begin{equation}
           \begin{aligned}
-          g(x) &= \frac{x}{1 - 4x^{2}} \\
-          &= \frac{1}{4(1 - 2x)} - \frac{1}{4(1 + 2x)} \\
-          &= \sum_{n = 0}^\infty \frac{2^{n} - {(-2)}^{n}}{4} x^{n}
+          g(x) &= \frac{x - 4x^2 = 3x^3}{1 - 5x + 6x^2 + 4x^3 - 8x^4} \\
+          &= \frac{\frac{17}{4 * 27}}{1 - 2x} - \frac{\frac{2}{9}}{(1 - 2x)^2} -\frac{\frac{1}{12}}{(1 - 2x)^3} - \frac{\frac{8}{27}}{1 + x}\\
+          &= \sum_{n = 0}^\infty [\frac{17}{4 * 27} + \frac{2}{9}(n + 1) - \frac{(n + 2)(n + 1)}{24}] 2^n x^{n} - \frac{8}{27} \sum_{n = 0}^\infty (-1)^n x^n
           \nonumber
           \end{aligned}
           \end{equation}
           Therefore
-          $$ h_{n} = \frac{2^{n} - {(-2)}^{n}}{4} x^{n} \quad n=0,1,2, \dots $$
+          $$ h_{n} = [\frac{17}{4 * 27} + \frac{2}{9}(n + 1) - \frac{(n + 2)(n + 1)}{24}] x^{n} - \frac{8}{27}  (-1)^n \quad n=0,1,2, \dots $$
 \end{enumerate}
 \section{Question 50}
 \paragraph{Question}
 Let $ h_{0}, h_{1}, h_{2}, \cdots ,h_{n}, \cdots $ be the sequence dened by $ h_{n} = \begin{pmatrix} n \\ 2 \end{pmatrix} $, $ (n \geq 0) $. Determine the generating function for the sequence.
 \paragraph{Answer}
-\begin{center}
-
-\end{center}
+~\\
+We want $ g(x) = \sum_{n = 0}^\infty \begin{pmatrix} n \\ 2 \end{pmatrix} x^n $
+The first two terms are zero so we can rewrite the sum as: 
+$$ g(x) = \sum_{n = 2}^\infty \begin{pmatrix} n \\ 2 \end{pmatrix} x^n $$
+lets add $ 3-1 $: 
+$$ \sum_{n = 0}^\infty \begin{pmatrix} n + 3 - 1 \\ 2 \end{pmatrix} x^{n + 2} $$      
+factor out $ x^2 $ , $ x^2 \sum_{n = 0}^\infty \begin{pmatrix} n + 3 - 1 \\ 2 \end{pmatrix} x^{n} $
+so we have the generating function to be \\
+$$ \frac{x^2}{(1 - x)^3} $$
 \end{document}
