@@ -1,0 +1,95 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+ 
+\title{Homework 11.16}
+\author{SA18225036 陈旻}
+\date{}
+\begin{document}
+\maketitle
+\section{Question 51}
+\paragraph{Question}
+Let $ 2n $ (equally spaced) points on a circle be chosen. Show
+that the number of ways to join these points in pairs, so that the resulting $ n $ line
+segments do not intersect, equals the nth Catalan number $ C_n $.
+\paragraph{Answer}
+    ~\\
+    Let pn denote the number of ways to join the points in pairs. We have $p_0 = p_1 =
+1$. We claim that this sequence satisfies the recursion
+    $$ P_{n +1} = \sum_{k = 0}^n p_k p_{n - k} $$
+    Indeed, take 2(n + 1) points on a circle. Fix one of the points P, arbitrarily.
+In every pairing and joining by line segements, P is connected to some other
+vertex Q. Let m denote the number of between P to Q, going around the circle
+clockwise. Then there are 2n − m points between P and Q, going around the
+circle counterclockwise. (The total number of points is 2n + 2, but this includes
+P and Q.) \\
+If m is odd, there is no way to pair the odd number of points on this side of the
+circle, so it must be that m (and hence 2n − m) is even. Write m = 2k. There
+are pk ways to connect the points on one side of segment P Q and $p_n−k$ ways
+to connect the points on the other side, and these can be done independently of
+each other. So the multiplicative principle applies, and there are pkpn−k pairings
+with P connected to this point Q. Letting Q vary over all choices with m even
+is the same as letting k range from 0 to n.
+Since $ p_n $ and $ C_n $ satisfy the same recurrence relation and the same initial conditions,
+they must be the same sequence.
+
+\section{Question 52}
+\paragraph{Question}
+Prove that the Stirling numbers of the second kind satisfy
+the following relations,
+\begin{enumerate}[(a)]
+    \item $ S(n , 1) = 1 , (n \geq 1)$
+    \item $ S(n , 2) = 2^{n - 1} - 1, (n \geq 2) $
+    \item $ S(n , n - 1) = \begin{pmatrix} n \\ 2 \end{pmatrix}, (n \geq 1) $
+    \item $ S(n , n - 2) = \begin{pmatrix} n \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n \\ 4 \end{pmatrix}, (n \geq 2) $
+\end{enumerate}
+\paragraph{Answer}
+\begin{enumerate}[(a)]
+    \item Recall the definition of Stirling numbers of the second kind, $ S(n,k) $ is the number of ways to
+    partition $ n $ items to $ k $ nonempty blocks. There is only one way to partition $ n $ items into 1 block.
+    Therefore $ S(n , 1) = 1$, where $ n \geq 1 $. 
+    \item There are $ 2^n $ ways to form a subset from a collection of $ n $ items, including the empty subset. In
+   the context of partitions, selecting the current set of items is the same as selecting the rest of the items. Therefore, there are $ 2^{n - 1} $ ways to form
+    2 partitions if we count empty set. Exclude the one that has the empty subset, we have $ 2^{n - 1}  - 1$ ways to form 2 partitions from $ n - 1 $ items. In
+   other words, $ S(n , 2) = 2^{n - 1} - 1, (n \geq 2) $. 
+    \item To form $ n - 1 $ partitions from $ n $ items, we simply choose2 items to form one partition and place
+    the rest of them, the $n - 2$ items, in their own partitions, $n - 2$ partitions. There are $ \begin{pmatrix} n \\ 2 \end{pmatrix} $ ways
+    to select the two items that go together, so there are $ \begin{pmatrix} n \\ 2 \end{pmatrix} $ ways to form $n - 1$ partitions from $ n $
+    items. In other words, $ S(n , n - 1) = \begin{pmatrix} n \\ 2 \end{pmatrix} $. 
+    \item We will prove $ S(n , n - 2) = \begin{pmatrix} n \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n \\ 4 \end{pmatrix}, (n \geq 2) $, by induction based on the recurrence
+    relation of the Stirling numbers of the second kind,$ S(n , k) = kS(n - 1,k) + S(n - 1,k - 1)$. 
+        \begin{enumerate}[1]
+            \item $S(2,0)$ is defined to be 0. $S(3,1)$ is the number of ways to partition 3 items into 1
+            block. There’s only one way to do so. 
+            $$ S(2 , 0) = 0 = \begin{pmatrix} 2 \\ 3 \end{pmatrix} + 3 \begin{pmatrix} 2 \\ 4 \end{pmatrix} = 0 $$
+            $$ S(3 , 1) = 1 = \begin{pmatrix} 3 \\ 3 \end{pmatrix} + 3 \begin{pmatrix} 3 \\ 4 \end{pmatrix} = 1 $$
+            \item We assume that $S(n , n - 2) = \begin{pmatrix} n \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n + 1 \\ 4 \end{pmatrix}$ holds for $n$, where $n \geq 2$. We will
+            now prove$ S(n + 1, n - 1) = \begin{pmatrix} n + 1 \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n + 1 \\ 4 \end{pmatrix} $also holds, where $n \geq 2$. 
+                \begin{equation}
+                    \begin{aligned}
+                    S(n + 1, n - 1) &= (n - 1)S(n,n - 1) + S(n,n - 2) \\
+                    &= (n - 1) * \begin{pmatrix} n \\ 2 \end{pmatrix} + \begin{pmatrix} n \\ 3 \end{pmatrix} + 3\begin{pmatrix} n \\ 4 \end{pmatrix}\\
+                    &= \frac{(n - 1) * n!}{2! * (n - 2)!} + \frac{n!}{3! * (n - 3)!} + \frac{3 * n!}{4! * (n - 3)!} \\
+                    &= \frac{1}{24}n(n - 1)(n + 1)(3n - 2)
+                    \nonumber
+                    \end{aligned}
+                \end{equation}
+                We now simplify the right side of the to be proven equation, 
+                \begin{equation}
+                    \begin{aligned}
+                    \begin{pmatrix} n + 1 \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n + 1 \\ 4 \end{pmatrix} &= \frac{(n + 1)!}{3!(n -2)!} + \frac{3 * (n + 1)!}{4!(n - 3)!}\\
+                    &= \frac{1}{24}n(n - 1)(n + 1)(3n - 2)
+                    \nonumber
+                    \end{aligned}
+                \end{equation}
+                So, we’ve shown $ S(n + 1, n - 1) = \begin{pmatrix} n + 1 \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n + 1 \\ 4 \end{pmatrix} $ holds if $S(n , n - 2) = \begin{pmatrix} n \\ 3 \end{pmatrix} + 3 \begin{pmatrix} n + 1 \\ 4 \end{pmatrix}$
+holds.
+        \end{enumerate}
+\end{enumerate}
+\end{document}
