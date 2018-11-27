@@ -1,0 +1,50 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+ 
+\title{Homework 11.16}
+\author{xxx}
+\date{}
+\begin{document}
+\maketitle
+\section{Question 53}
+\paragraph{Question}
+Determine the conjugate of each of the following
+partitions,
+\begin{enumerate}[(a)]
+    \item $ 12 = 5 + 4 + 2 + 1 $
+    \item $ 15 = 6 + 4 + 3 + 1 + 1 $
+    \item $ 20 = 6 + 6 + 4 + 4 $
+    \item $ 21 = 6 + 5 + 4 + 3 + 2 + 1 $
+    \item $ 29 = 8 + 6 + 6 + 4 + 3 + 2 $
+\end{enumerate}
+\paragraph{Answer}
+    \begin{enumerate}
+        \item $ 12 = 4 + 3 + 2 + 2 + 1 $
+        \item $ 15 = 5 + 3 + 3 + 2 + 1 + 1 $
+        \item $ 20 = 4 + 4 + 4 + 4 + 2 + 2 $
+        \item $ 21 = 6 + 5 + 4 + 3 + 2 + 1 $
+        \item $ 29 = 6 + 6 + 5 + 4 + 3 + 3 + 1 + 1 $
+    \end{enumerate}
+
+
+\section{Question 54}
+\paragraph{Question}
+Prove that conjugation reverses the order of majorization,
+that is, if $ \lambda $ and $ \mu $ are partitions of $ n $ and $ \lambda $ is majorized by $ \mu $, then $ \mu^{*} $ is majorized
+by $ \lambda^{*} $.
+\paragraph{Answer}
+Let us view the Ferrers diagram for $ \lambda $ and $ \mu $ as contained in a $ n \times n $ box and justied
+to the North-West. Consider the $ 2n - 1 $ NW-SE diagonals in this box. One checks that the following are equivalent:
+\begin{enumerate}[i]
+    \item $ \lambda $ is majorized by $ \mu $
+    \item for each NW-SE diagonal the number of dots in $ \mu $ that lie on or above the diagonal is
+    at least the number of dots in $ \lambda $ that lie on or above the diagonal.
+\end{enumerate}
+\end{document}
