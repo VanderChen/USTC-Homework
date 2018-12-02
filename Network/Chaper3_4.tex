@@ -5,28 +5,68 @@
 \usepackage{enumerate}
 
 \title{第三、四章作业}
-\author{xxx}
+\author{SA18225036 陈旻}
 \begin{document}
 \date{}
 \maketitle
 \section{第三章}
 \subsection{第五题}
 \paragraph{答案}
-
+因为最小长度为46字节，所以还应填充4字节。
 \subsection{第六题}
 \paragraph{答案}
-
+不行，应总共发送2个帧，第一帧1500字节，第二帧46字节。
 \subsection{第七题}
 \paragraph{答案}
-
+\begin{enumerate}[a.]
+    \item 相同点 
+    \begin{enumerate}[1]
+        \item 每一个站点对于信道都平等
+        \item 每一个站点都能侦听信道
+    \end{enumerate}
+    \item 不同点
+    \begin{enumerate}[1]
+        \item CDMA/CD ：站点在侦听到线路上没有信号时即可发送 \\
+              CDMA/CA ：站点需要告诉其他站点，它需要占用线路一段时间
+        \item CDMA/CD ：碰撞有可能发生 \\
+              CMDA/CA ：碰撞不会发生
+    \end{enumerate}
+\end{enumerate}
 \section{第四章}
 \subsection{第一题}
 \paragraph{答案}
-
+\begin{enumerate}[a.]
+    \item 优点 
+    \begin{enumerate}[1]
+        \item 发送简单
+        \item 无资源耗尽问题
+    \end{enumerate}
+    \item 缺点
+    \begin{enumerate}[1]
+        \item 需要自己解决可靠通信问题，有可能由拥塞导致包丢失
+        \item 包可能乱序到达，因为需要上层重新排序
+    \end{enumerate}
+\end{enumerate}
 \subsection{第二题}
 \paragraph{答案}
-
+\begin{enumerate}[a.]
+    \item 优点 
+    \begin{enumerate}[1]
+        \item 自动处理分组丢失
+        \item 自动验证数据差错
+        \item 处理连接状态
+        \item 拥有更稳定的连接质量
+    \end{enumerate}
+    \item 缺点
+    \begin{enumerate}[1]
+        \item 对每个连接都有一个单独的套接字，耗费更多的资源，存在资源耗尽问题
+        \item 在空闲的连接上不发送任何分组
+    \end{enumerate}
+\end{enumerate}
 \subsection{第六题}
 \paragraph{答案}
-
+\begin{enumerate}
+    \item 该部分的分组路径可能仍然使用无连接的服务
+    \item 网络层的协议在设计时就涉及这两个地址，并且要改变这一现状可能需要一定的时间
+\end{enumerate}
 \end{document}
