@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HTML & CSS</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Split button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-info">Action</button>
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href ="javascript:void(0);" onclick ="js_method()">Hand Made style 1</a></li>
+            <li><a href ="javascript:void(0);" onclick ="js_method()">Hand Made style 2</a></li>
+            <li><a href ="javascript:void(0);" onclick ="js_method()">Bootstrap Style</a></li>
+        </ul>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Manuafacturer</th>
+                <th>Size</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Corn</td>
+                <td>Kellogg's</td>
+                <td>18 oz</td>
+                <td>2.50</td>
+                <td>1</td>
+                <td>2.50</td>
+            </tr>
+            <tr>
+                <td>Solid</td>
+                <td>Starkist</td>
+                <td>5 oz</td>
+                <td>2.79</td>
+                <td>2</td>
+                <td>5.58</td>
+            </tr>
+            <tr>
+                <td>Cream</td>
+                <td>Campbell</td>
+                <td>10.75 oz</td>
+                <td>1.00</td>
+                <td>2</td>
+                <td>2.00</td>
+            </tr>
+            <tr>
+                <td>Milk</td>
+                <td>Safeway</td>
+                <td>0.5 gal</td>
+                <td>1.99</td>
+                <td>1</td>
+                <td>1.99</td>
+            </tr>
+            <tr>
+                <td>Noodles</td>
+                <td>Golden Grain</td>
+                <td>12 oz</td>
+                <td>0.87</td>
+                <td>3</td>
+                <td>2.61</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
