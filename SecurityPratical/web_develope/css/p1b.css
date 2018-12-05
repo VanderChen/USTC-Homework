@@ -1,0 +1,32 @@
+table{
+    margin: 40px 80px;
+    width: 500px;
+    border-collapse:separate; 
+    border-spacing: 0px 1px;
+    vertical-align: middle;
+    font-family: Tahoma;
+    font-size: 13px;
+    border: 10px solid #d0d0ff;
+    padding: 20px;
+}
+
+table th:nth-of-type(-n + 3) {
+    text-align: left;
+}
+
+table th:nth-of-type(n + 4) {
+    text-align: center;
+}
+
+table tr td:nth-of-type(-n + 3) {
+    text-align: left;
+}
+
+table tr td:nth-of-type(n + 4) {
+    text-align: center;
+}
+
+table tr:nth-last-of-type(1) td{
+    border-top: 2px solid #000000;
+    font-weight: bold;
+}

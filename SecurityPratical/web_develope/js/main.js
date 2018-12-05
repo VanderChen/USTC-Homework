@@ -1,20 +1,7 @@
-function clearStyle() {
-    $('#test_style table').removeClass('table table-striped');
-}
-
-function setBootstrapStyle() {
-    clearStyle();
-    $('#test_style table').addClass('table table-striped');
-}
-
 function setHandMadeStyle1() {
-    clearStyle();
+    $("#alternate-style").attr("href","css/p1a.css");
 }
 
 function setHandMadeStyle2() {
-    clearStyle();
+    $("#alternate-style").attr("href","css/p1b.css");
 }
-
-$( document ).ready(function() {
-    $('table').addClass('table table-striped');
-});

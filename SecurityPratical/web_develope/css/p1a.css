@@ -1,0 +1,42 @@
+table{
+    margin: 40px 80px;
+    width: 500px;
+    border-collapse:separate; 
+    border-spacing: 0px 1px;
+    vertical-align: middle;
+    font-family: Tahoma;
+    font-size: 13px;
+}
+
+table th {
+    background-color: #687291;
+    color: #ffffff;
+}
+
+table th:nth-of-type(-n + 3) {
+    text-align: left;
+}
+
+table th:nth-of-type(n + 4) {
+    text-align: center;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: #eeeff2;
+}
+
+table tr:nth-of-type(even) {
+    background-color: #dfe1e7;
+}
+
+table tr td:nth-of-type(-n + 3) {
+    text-align: left;
+}
+
+table tr td:nth-of-type(n + 4) {
+    text-align: center;
+}
+
+table tr:nth-last-of-type(1) {
+    display: none;
+}
