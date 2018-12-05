@@ -14,19 +14,19 @@
 <body>
     <!-- Split button -->
     <div class="btn-group">
-        <button type="button" class="btn btn-info">Action</button>
+        <button type="button" class="btn btn-info">Change Style</button>
         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu">
-            <li><a href ="javascript:void(0);" onclick ="js_method()">Hand Made style 1</a></li>
-            <li><a href ="javascript:void(0);" onclick ="js_method()">Hand Made style 2</a></li>
-            <li><a href ="javascript:void(0);" onclick ="js_method()">Bootstrap Style</a></li>
+            <li><a href ="javascript:void(0);" onclick ="setHandMadeStyle1()">Hand Made style 1</a></li>
+            <li><a href ="javascript:void(0);" onclick ="setHandMadeStyle2()">Hand Made style 2</a></li>
+            <li><a href ="javascript:void(0);" onclick ="setBootstrapStyle()">Bootstrap Style</a></li>
         </ul>
     </div>
-    <div>
+    <div id="test_style">
         <table>
             <tr>
                 <th>Item</th>
