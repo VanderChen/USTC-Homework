@@ -1,0 +1,43 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\title{第七、八章作业}
+\author{SA18225036 陈旻}
+\begin{document}
+\date{}
+\maketitle
+\section{第七章}
+\subsection{第4题}
+\paragraph{答案}
+$ 120*8=960 $，因此第一个字节的编号是960，但无法确定最后一个字节的编号，除非知道数据的长度。
+\subsection{第6题}
+\paragraph{答案}
+~\\
+首部最多40字节，选项格式中类型、长度各1字节。路由最多可存9个。因为标识位是1，需要记录IP地址和时间戳，所以只能存放4对地址和时间戳。
+\subsection{第16题}
+\paragraph{答案}
+\begin{enumerate}[a.]
+    \item 第一个字节编号：$ 200*8=1600 $，总长200，首部长度20，这个数据报中共有180字节。最后一个字节编号：$ 1600+180-1=1779 $。
+    \item 因M位是0，所以是最后一个分片。
+\end{enumerate}
+\section{第八章}
+\subsection{第2题}
+\paragraph{答案}
+~\\
+长度为28个字节：  \\
+硬件类型：2字节 \\
+协议类型：2字节 \\
+硬件地址长度：1字节 \\
+协议地址长度：1字节 \\
+操作类型：2字节 \\
+源MAC地址：6字节 \\
+源IP地址：4字节 \\
+目的MAC地址：6字节 \\
+故长度总和$ 2+2+1+1+2+6+4+6=28 $字节
+\subsection{第5题}
+\paragraph{答案}
+\end{document}
