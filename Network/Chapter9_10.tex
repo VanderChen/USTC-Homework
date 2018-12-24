@@ -1,0 +1,49 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\title{第九、十章作业}
+\author{SA18225036 陈旻}
+\begin{document}
+\date{}
+\maketitle
+\section{第九章}
+\subsection{第10题}
+\paragraph{答案}
+~\\
+ICMP分组小长度是8字节,最大长度是256*8+8字节 
+\subsection{第13题}
+\paragraph{答案}
+~\\
+携带ICMP分组的IP分组的协议字段值为1 
+\paragraph{答案}
+\begin{enumerate}[a.]
+    \item 第一个字节编号：$ 200*8=1600 $，总长200，首部长度20，这个数据报中共有180字节。最后一个字节编号：$ 1600+180-1=1779 $。
+    \item 因M位是0，所以是最后一个分片。
+\end{enumerate}
+\subsection{第16题}
+\paragraph{答案}
+\begin{enumerate}[a.]
+    \item 第一个字节编号：$ 200*8=1600 $，总长200，首部长度20，这个数据报中共有180字节。最后一个字节编号：$ 1600+180-1=1779 $。
+    \item 因M位是0，所以是最后一个分片。
+\end{enumerate}
+\section{第十章}
+\subsection{第9题}
+\paragraph{答案}
+~\\
+长度为28个字节：  \\
+硬件类型：2字节 \\
+协议类型：2字节 \\
+硬件地址长度：1字节 \\
+协议地址长度：1字节 \\
+操作类型：2字节 \\
+源MAC地址：6字节 \\
+源IP地址：4字节 \\
+目的MAC地址：6字节 \\
+故长度总和$ 2+2+1+1+2+6+4+6=28 $字节
+\subsection{第10题}
+\paragraph{答案}
+\end{document}
