@@ -9,6 +9,7 @@ int main(int argc, char **argv)
             case 's':
                 printf("this is s");
                 printf(optarg);
+                print_hello();
                 break;
             case 'd':
                 printf("this is d");

@@ -1,2 +1,5 @@
-icmp : icmp.c icmp.h
-	gcc icmp.c -o icmp
+icmp : icmp.c icmp.h sniff.o
+sniff.o : sniff.c sniff.h
+.PHONY : clean
+clean :
+	rm *.o icmp
