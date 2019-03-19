@@ -1,4 +1,4 @@
-#include "icmp.h"
+#include "icmpx.h"
 
 int main(int argc, char **argv)
 {   
@@ -10,6 +10,7 @@ int main(int argc, char **argv)
                 printf("this is s");
                 printf(optarg);
                 print_hello();
+                print_dev();
                 break;
             case 'd':
                 printf("this is d");
