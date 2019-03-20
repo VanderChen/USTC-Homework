@@ -4,20 +4,18 @@ int main(int argc, char **argv)
 {   
     int opt = 0;
     char* dev;
-    while((opt = getopt(argc,argv,"rd")) != -1){
+    while((opt = getopt(argc,argv,"d:")) != -1){
         switch (opt)
         {
-            case 'r':
-                capture_packet();
+            case 'd':
+                capture_packet(optarg);
+                return 0;
                 break;
-            // case 'd':
-            //     printf("this is d");
-            //     break;
             default:
-                printf("this is nothing");
                 break;
         }
     }
+    capture_packet("");
     
     return 0;
 }
