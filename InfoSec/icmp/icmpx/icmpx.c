@@ -4,18 +4,22 @@ int main(int argc, char **argv)
 {   
     int opt = 0;
     char* dev;
-    while((opt = getopt(argc,argv,"d:")) != -1){
+    char target_ip[INET_ADDRSTRLEN] = "";
+    char gateway[INET_ADDRSTRLEN];
+    while((opt = getopt(argc,argv,"d:g:")) != -1){
         switch (opt)
         {
             case 'd':
-                capture_packet(optarg);
-                return 0;
+                strcpy(target_ip,optarg);
+                break;
+            case 'g':
+                strcpy(gateway,optarg);
                 break;
             default:
                 break;
         }
     }
-    capture_packet("");
+    capture_packet(target_ip,gateway);
     
     return 0;
 }
