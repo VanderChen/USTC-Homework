@@ -129,7 +129,7 @@ int capture_packet(char * vic_ip,char * gateway_str){
 	struct bpf_program fp;		/* The compiled filter */
 	char filter_exp[4 + INET_ADDRSTRLEN] = "";	/* The filter expression */
     
-    if (!strcmp(vic_ip,"")) {
+    if (strcmp(vic_ip,"")) {
         strcpy(filter_exp,"src ");
         strcat(filter_exp,vic_ip);
     }
@@ -163,6 +163,7 @@ int capture_packet(char * vic_ip,char * gateway_str){
 		fprintf(stderr, "Couldn't open device %s\n", errbuf);
 		return(1);
 	}
+    printf(filter_exp);
 
 	// Compile the expression
 	if (pcap_compile(handle,&fp,filter_exp,COMPILE_OPTIMIZE,net) == -1) {
