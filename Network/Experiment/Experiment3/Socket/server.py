@@ -23,6 +23,7 @@ def main():
 
         print("收到：",rec.decode("utf-8"))
         send = input("发送： ")
+        print("send: ",send.encode())
         ss.send(send.encode())
 
         if rec == "exit":
