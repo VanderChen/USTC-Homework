@@ -1,0 +1,23 @@
+%!TEX program = pdflatex
+\documentclass[UTF8]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+ 
+\title{实验报告2}
+\author{陈旻 SA18225036}
+\date{}
+\begin{document}
+\maketitle
+\section{具体思路}
+\paragraph{}
+根据实验说明直接执行:
+\begin{enumerate}[(1)]
+    \item 创建一个等式左边$ h / g^{x_1} $所有可能值的哈希表，其中$ x_1 = 0,1,\cdots,2^{20} $。
+    \item 对于每一个$ x_1 = 0,1,\cdots,2^{20} $，检查$ {(g^B)}^{x_0} $是否在哈希表中，如果是，便找到了解$ (x_0 , x_1) $，即$ x = x_0 B + x_1$。
+\end{enumerate}
+\end{document}
